@@ -4,8 +4,16 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
 
+<form method="post">
+    <div align="right">
+        <input type="text" name="busqueda" class="form-control" />
+    </div>
+    <div align="right" class="col-md-10">
+        <input type="submit" value="BUSCAR" class="btn btn-primary" />
+    </div>
+
+</form>
 
 @using (Html.BeginForm()) 
 {
