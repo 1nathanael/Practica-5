@@ -50,13 +50,13 @@ namespace Practica5
             //    clientId: "",
             //    clientSecret: "");
 
-            app.UseTwitterAuthentication(
-               consumerKey: "449835688885373",
-               consumerSecret: "0ac3858406f0a086621d9f55933c0811");
+            //app.UseTwitterAuthentication(
+            //   consumerKey: "",
+            //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "449835688885373",
+               appSecret: "0ac3858406f0a086621d9f55933c0811");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
