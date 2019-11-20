@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace Practica5.Controllers
 {
-    public class AchivosController : Controller
+    public class ArchivosController : Controller
     {
         // GET: Achivos
         public ActionResult Index()
