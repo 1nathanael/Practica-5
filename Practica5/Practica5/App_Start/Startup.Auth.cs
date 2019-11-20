@@ -50,9 +50,9 @@ namespace Practica5
             //    clientId: "",
             //    clientSecret: "");
 
-            //app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
+            app.UseTwitterAuthentication(
+               consumerKey: "449835688885373",
+               consumerSecret: "0ac3858406f0a086621d9f55933c0811");
 
             //app.UseFacebookAuthentication(
             //   appId: "",
