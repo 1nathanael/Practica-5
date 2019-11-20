@@ -57,23 +57,25 @@
     @if (Model.Count() > 0)
     {
         <hr />
-        <table cellpadding="0" cellspacing="0"
+        <table cellpadding="0" cellspacing="0">
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Descripcion</th>
             </tr>
 
-        @foreach(Modificador M in Model)
-        {
-        <tr>
-            <th>@M.ID</th>
-            <th>@M.Nombre</th>
-            <th>@M.Descripcion</th>
+            @foreach (Modificador M in Model)
+            {
+                <tr>
+                    <th>@M.ID</th>
+                    <th>@M.Nombre</th>
+                    <th>@M.Descripcion</th>
 
-        </tr>
-        }
+                </tr>
+            }
+        </table>
     }
+        
 
 </body>
 </html>

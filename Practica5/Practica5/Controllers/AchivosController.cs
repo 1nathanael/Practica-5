@@ -13,7 +13,7 @@ namespace Practica5.Controllers
         // GET: Achivos
         public ActionResult Index()
         {
-            return View(new List<Modificador>);
+            return View(new List<Modificador>());
         }
 
         [HttpPost]
