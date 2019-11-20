@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Practica5.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,19 @@ namespace Practica5.Controllers
         // GET: Achivos
         public ActionResult Index()
         {
-            return View();
+            return View(new List<Modificador>);
+        }
+
+        [HttpPost]
+        public ActionResult index(HttpPostedFileBase postedFile)
+        {
+            List<Modificador> M = new List<Modificador>();
+            string archivo = string.Empty;
+
+            if(postedFile != null)
+            {
+                string ruta = Server.MapPath("~/Archivos/");
+            }
         }
     }
 }
