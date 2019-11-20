@@ -16,39 +16,38 @@
     <hr />
 
     <style type="text/css">
-        body{
-            font-family:'Times New Roman', Times, serif Arial;
+        body {
+            font-family: 'Times New Roman', Times, serif Arial;
             font-size: 16pt;
         }
 
-        table{
+        table {
             border: 1px solid #000000;
             border-collapse: collapse;
             background-color: #ffffff;
         }
 
-        table th{
-            background-color: #00ff90;
-            color: #333;
-            font-weight: bold;
-        }
+            table th {
+                background-color: #00ff90;
+                color: #333;
+                font-weight: bold;
+            }
 
-        table th, table td{
-            padding: 5px;
-            border: 1px solid #ccc;
-        }
+            table th, table td {
+                padding: 5px;
+                border: 1px solid #ccc;
+            }
 
-        table, table table td{
-            border: 0px solid #ccc;
-        }
-
+            table, table table td {
+                border: 0px solid #ccc;
+            }
     </style>
 
 </head>
 
 <body>
-    
-    @using (Html.BeginForm("index", "Archivos", FormMethod.Post, new {enctype = "multipart/form-data" }))
+
+    @using (Html.BeginForm("Index", "Archivos", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         <input type="file" class="btn btn-default" name="postedfile"><br>
         <input type="submit" class="btn btn-primary" value="importar">
@@ -75,7 +74,7 @@
             }
         </table>
     }
-        
+
 
 </body>
 </html>

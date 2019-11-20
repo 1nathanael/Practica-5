@@ -17,7 +17,7 @@ namespace Practica5.Controllers
         }
 
         [HttpPost]
-        public ActionResult index(HttpPostedFileBase postedFile)
+        public ActionResult Index(HttpPostedFileBase postedFile)
         {
             List<Modificador> M = new List<Modificador>();
             string archivo = string.Empty;
