@@ -31,5 +31,7 @@ namespace Practica5.Models
         }
 
         public System.Data.Entity.DbSet<Practica5.Models.Contactos> Contactos { get; set; }
+
+        public System.Data.Entity.DbSet<Practica5.Models.Eventos> Eventos { get; set; }
     }
 }
