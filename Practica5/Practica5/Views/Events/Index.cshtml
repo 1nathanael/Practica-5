@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+<br />
+<br />  
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear nuevo evento", "Create")
 </p>
 <table class="table">
     <tr>
@@ -42,4 +42,15 @@
     </tr>
 }
 
+
 </table>
+
+<form method="post">
+    <div>
+        <input type="text" name="busqueda" class="form-control" />
+    </div>
+    <div class="col-md-10">
+        <input type="submit" value="BUSCAR" class="btn btn-primary" />
+    </div>
+
+</form>

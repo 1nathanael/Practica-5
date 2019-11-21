@@ -19,7 +19,22 @@ namespace Practica5.Controllers
         {
             return View(db.Eventos.ToList());
         }
-
+        [HttpPost]
+        public ActionResult Index(string busqueda)
+        {
+            var lista = from x in db.Eventos
+                        select x;
+            if (string.IsNullOrEmpty(busqueda))
+            {
+                return View(db.Eventos.ToList());
+            }
+            else
+            {
+                lista = lista.Where(a => a.Evento.Contains(busqueda));
+                
+                return View(lista);
+            }
+        }
         // GET: Events/Details/5
         public ActionResult Details(int? id)
         {
