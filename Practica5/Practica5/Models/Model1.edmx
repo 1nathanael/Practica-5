@@ -54,7 +54,7 @@
           <Property Name="Fecha" Type="DateTime" Precision="0" />
           <Property Name="Hora" Type="Time" Precision="7" />
         </EntityType>
-        <EntityContainer Name="AgendaElectronicaEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="AgendaElectronicaEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Contactos" EntityType="Self.Contactos" />
           <EntitySet Name="Eventos" EntityType="Self.Eventos" />
         </EntityContainer>
@@ -63,7 +63,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AgendaElectronicaModelStoreContainer" CdmEntityContainer="AgendaElectronicaEntities">
+        <EntityContainerMapping StorageEntityContainer="AgendaElectronicaModelStoreContainer" CdmEntityContainer="AgendaElectronicaEntities1">
           <EntitySetMapping Name="Contactos">
             <EntityTypeMapping TypeName="AgendaElectronicaModel.Contactos">
               <MappingFragment StoreEntitySet="Contactos">
