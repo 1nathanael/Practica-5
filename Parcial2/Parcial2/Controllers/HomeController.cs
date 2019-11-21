@@ -4,16 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Practica5.Controllers
+namespace Parcial2.Controllers
 {
-
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
             return View();
         }
-
 
         public ActionResult About()
         {
@@ -29,4 +27,4 @@ namespace Practica5.Controllers
             return View();
         }
     }
- }   
+}
