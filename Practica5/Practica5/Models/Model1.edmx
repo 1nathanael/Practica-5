@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AgendaElectronicaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AgendaElectronicaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Contactos">
           <Key>
             <PropertyRef Name="ID" />
@@ -12,7 +12,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="20" />
           <Property Name="Apellido" Type="varchar" MaxLength="20" />
-          <Property Name="Celular" Type="int" />
+          <Property Name="Celular" Type="varchar" MaxLength="11" />
           <Property Name="Email" Type="varchar" MaxLength="255" />
           <Property Name="Direccion" Type="varchar" MaxLength="200" />
         </EntityType>
@@ -29,22 +29,10 @@
           <EntitySet Name="Contactos" EntityType="Self.Contactos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Eventos" EntityType="Self.Eventos" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AgendaElectronicaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Contactos">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Apellido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Celular" Type="Int32" />
-          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="Eventos">
           <Key>
             <PropertyRef Name="id" />
@@ -55,27 +43,26 @@
           <Property Name="Hora" Type="Time" Precision="7" />
         </EntityType>
         <EntityContainer Name="AgendaElectronicaEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Contactos" EntityType="Self.Contactos" />
           <EntitySet Name="Eventos" EntityType="Self.Eventos" />
+          <EntitySet Name="Contactos" EntityType="AgendaElectronicaModel.Contactos" />
         </EntityContainer>
+        <EntityType Name="Contactos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Celular" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="AgendaElectronicaModelStoreContainer" CdmEntityContainer="AgendaElectronicaEntities1">
-          <EntitySetMapping Name="Contactos">
-            <EntityTypeMapping TypeName="AgendaElectronicaModel.Contactos">
-              <MappingFragment StoreEntitySet="Contactos">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
-                <ScalarProperty Name="Celular" ColumnName="Celular" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Eventos">
             <EntityTypeMapping TypeName="AgendaElectronicaModel.Eventos">
               <MappingFragment StoreEntitySet="Eventos">
@@ -83,6 +70,18 @@
                 <ScalarProperty Name="Evento" ColumnName="Evento" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
                 <ScalarProperty Name="Hora" ColumnName="Hora" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contactos">
+            <EntityTypeMapping TypeName="AgendaElectronicaModel.Contactos">
+              <MappingFragment StoreEntitySet="Contactos">
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

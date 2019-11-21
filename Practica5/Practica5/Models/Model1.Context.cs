@@ -25,7 +25,7 @@ namespace Practica5.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Contactos> Contactos { get; set; }
         public virtual DbSet<Eventos> Eventos { get; set; }
+        public virtual DbSet<Contactos> Contactos { get; set; }
     }
 }

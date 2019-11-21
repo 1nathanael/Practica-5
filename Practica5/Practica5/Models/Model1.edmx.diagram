@@ -5,8 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="fc3aafe9dfbf4009ad10833afeabde31" Name="Diagram1">
-        <EntityTypeShape EntityType="AgendaElectronicaModel.Contactos" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AgendaElectronicaModel.Eventos" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgendaElectronicaModel.Contactos" Width="1.5" PointX="0.5" PointY="0.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
