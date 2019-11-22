@@ -10,107 +10,107 @@ using Practica5.Models;
 
 namespace Practica5.Controllers
 {
-    public class ContactosController : Controller
+    public class AsignaturasController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private AsignaturasEntities2 db = new AsignaturasEntities2();
 
-        // GET: Contactos
+        // GET: Asignaturas
         public ActionResult Index()
         {
-            return View(db.Contactos.ToList());
+            return View(db.Asignaturas.ToList());
         }
 
-        // GET: Contactos/Details/5
+        // GET: Asignaturas/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contactos contactos = db.Contactos.Find(id);
-            if (contactos == null)
+            Asignaturas asignaturas = db.Asignaturas.Find(id);
+            if (asignaturas == null)
             {
                 return HttpNotFound();
             }
-            return View(contactos);
+            return View(asignaturas);
         }
 
-        // GET: Contactos/Create
+        // GET: Asignaturas/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Contactos/Create
+        // POST: Asignaturas/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Nombre,Apellido,Celular,Email,Direccion")] Contactos contactos)
+        public ActionResult Create([Bind(Include = "Asignatura_id,nombreAS")] Asignaturas asignaturas)
         {
             if (ModelState.IsValid)
             {
-                db.Contactos.Add(contactos);
+                db.Asignaturas.Add(asignaturas);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(contactos);
+            return View(asignaturas);
         }
 
-        // GET: Contactos/Edit/5
+        // GET: Asignaturas/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contactos contactos = db.Contactos.Find(id);
-            if (contactos == null)
+            Asignaturas asignaturas = db.Asignaturas.Find(id);
+            if (asignaturas == null)
             {
                 return HttpNotFound();
             }
-            return View(contactos);
+            return View(asignaturas);
         }
 
-        // POST: Contactos/Edit/5
+        // POST: Asignaturas/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Nombre,Apellido,Celular,Email,Direccion")] Contactos contactos)
+        public ActionResult Edit([Bind(Include = "Asignatura_id,nombreAS")] Asignaturas asignaturas)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(contactos).State = EntityState.Modified;
+                db.Entry(asignaturas).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(contactos);
+            return View(asignaturas);
         }
 
-        // GET: Contactos/Delete/5
+        // GET: Asignaturas/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contactos contactos = db.Contactos.Find(id);
-            if (contactos == null)
+            Asignaturas asignaturas = db.Asignaturas.Find(id);
+            if (asignaturas == null)
             {
                 return HttpNotFound();
             }
-            return View(contactos);
+            return View(asignaturas);
         }
 
-        // POST: Contactos/Delete/5
+        // POST: Asignaturas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Contactos contactos = db.Contactos.Find(id);
-            db.Contactos.Remove(contactos);
+            Asignaturas asignaturas = db.Asignaturas.Find(id);
+            db.Asignaturas.Remove(asignaturas);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

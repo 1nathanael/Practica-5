@@ -30,7 +30,7 @@ namespace Practica5.Controllers
             }
             else
             {
-                lista = lista.Where(a => a.Evento.Contains(busqueda));
+                lista = lista.Where(a => a.Evento.Contains(busqueda) || a.Fecha.ToString().Contains(busqueda));
                 
                 return View(lista);
             }

@@ -10,19 +10,18 @@ using Practica5.Models;
 
 namespace Practica5.Controllers
 {
-    public class AsignaturaController : Controller
+    public class AsignaturaEstudiantesController : Controller
     {
-        private AsignaturasEntities db = new AsignaturasEntities();
-        private Estudiantes estudiante = new Estudiantes();
+        private AsignaturasEntities2 db = new AsignaturasEntities2();
 
-        // GET: Asignatura
+        // GET: AsignaturaEstudiantes
         public ActionResult Index()
         {
             var asignaturaEstudiante = db.AsignaturaEstudiante.Include(a => a.Asignaturas).Include(a => a.Estudiantes);
-            return View(estudiante.Listar());
+            return View(asignaturaEstudiante.ToList());
         }
 
-        // GET: Asignatura/Details/5
+        // GET: AsignaturaEstudiantes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,15 +36,15 @@ namespace Practica5.Controllers
             return View(asignaturaEstudiante);
         }
 
-        // GET: Asignatura/Create
+        // GET: AsignaturaEstudiantes/Create
         public ActionResult Create()
         {
-            ViewBag.Asignatura_id = new SelectList(db.Asignaturas, "Asignatura_id", "nombre");
+            ViewBag.Asignatura_id = new SelectList(db.Asignaturas, "Asignatura_id", "nombreAS");
             ViewBag.Estudiante_id = new SelectList(db.Estudiantes, "Estudiante_id", "nombre");
             return View();
         }
 
-        // POST: Asignatura/Create
+        // POST: AsignaturaEstudiantes/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -59,12 +58,12 @@ namespace Practica5.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Asignatura_id = new SelectList(db.Asignaturas, "Asignatura_id", "nombre", asignaturaEstudiante.Asignatura_id);
+            ViewBag.Asignatura_id = new SelectList(db.Asignaturas, "Asignatura_id", "nombreAS", asignaturaEstudiante.Asignatura_id);
             ViewBag.Estudiante_id = new SelectList(db.Estudiantes, "Estudiante_id", "nombre", asignaturaEstudiante.Estudiante_id);
             return View(asignaturaEstudiante);
         }
 
-        // GET: Asignatura/Edit/5
+        // GET: AsignaturaEstudiantes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -76,12 +75,12 @@ namespace Practica5.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Asignatura_id = new SelectList(db.Asignaturas, "Asignatura_id", "nombre", asignaturaEstudiante.Asignatura_id);
+            ViewBag.Asignatura_id = new SelectList(db.Asignaturas, "Asignatura_id", "nombreAS", asignaturaEstudiante.Asignatura_id);
             ViewBag.Estudiante_id = new SelectList(db.Estudiantes, "Estudiante_id", "nombre", asignaturaEstudiante.Estudiante_id);
             return View(asignaturaEstudiante);
         }
 
-        // POST: Asignatura/Edit/5
+        // POST: AsignaturaEstudiantes/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -94,12 +93,12 @@ namespace Practica5.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Asignatura_id = new SelectList(db.Asignaturas, "Asignatura_id", "nombre", asignaturaEstudiante.Asignatura_id);
+            ViewBag.Asignatura_id = new SelectList(db.Asignaturas, "Asignatura_id", "nombreAS", asignaturaEstudiante.Asignatura_id);
             ViewBag.Estudiante_id = new SelectList(db.Estudiantes, "Estudiante_id", "nombre", asignaturaEstudiante.Estudiante_id);
             return View(asignaturaEstudiante);
         }
 
-        // GET: Asignatura/Delete/5
+        // GET: AsignaturaEstudiantes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -114,7 +113,7 @@ namespace Practica5.Controllers
             return View(asignaturaEstudiante);
         }
 
-        // POST: Asignatura/Delete/5
+        // POST: AsignaturaEstudiantes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

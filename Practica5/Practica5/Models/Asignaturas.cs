@@ -12,18 +12,16 @@ namespace Practica5.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Estudiantes
+    public partial class Asignaturas
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Estudiantes()
+        public Asignaturas()
         {
             this.AsignaturaEstudiante = new HashSet<AsignaturaEstudiante>();
         }
     
-        public int Estudiante_id { get; set; }
-        public string nombre { get; set; }
-        public string carrera { get; set; }
-        public string matricula { get; set; }
+        public int Asignatura_id { get; set; }
+        public string nombreAS { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AsignaturaEstudiante> AsignaturaEstudiante { get; set; }

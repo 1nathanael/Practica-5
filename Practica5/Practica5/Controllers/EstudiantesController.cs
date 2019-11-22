@@ -10,107 +10,102 @@ using Practica5.Models;
 
 namespace Practica5.Controllers
 {
-    public class EventosController : Controller
+    public class EstudiantesController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private AsignaturasEntities2 db = new AsignaturasEntities2();
 
-        // GET: Eventos
+        // GET: Estudiantes
         public ActionResult Index()
         {
-            return View(db.Eventos.ToList());
+            return View(db.Estudiantes.ToList());
         }
 
-        // GET: Eventos/Details/5
+        // GET: Estudiantes/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Eventos eventos = db.Eventos.Find(id);
-            if (eventos == null)
-            {
-                return HttpNotFound();
-            }
-            return View(eventos);
+            Estudiantes estudiante = new Estudiantes();
+            estudiante = db.Estudiantes
+                        .Include("AsignaturaEstudiantes")
+                        .Where(x => x.Estudiante_id == id)
+                        .Single();
+            return View(estudiante);
         }
-
-        // GET: Eventos/Create
+        // GET: Estudiantes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Eventos/Create
+        // POST: Estudiantes/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,Evento,Fecha,Hora")] Eventos eventos)
+        public ActionResult Create([Bind(Include = "Estudiante_id,nombre,carrera,matricula")] Estudiantes estudiantes)
         {
             if (ModelState.IsValid)
             {
-                db.Eventos.Add(eventos);
+                db.Estudiantes.Add(estudiantes);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(eventos);
+            return View(estudiantes);
         }
 
-        // GET: Eventos/Edit/5
+        // GET: Estudiantes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Eventos eventos = db.Eventos.Find(id);
-            if (eventos == null)
+            Estudiantes estudiantes = db.Estudiantes.Find(id);
+            if (estudiantes == null)
             {
                 return HttpNotFound();
             }
-            return View(eventos);
+            return View(estudiantes);
         }
 
-        // POST: Eventos/Edit/5
+        // POST: Estudiantes/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,Evento,Fecha,Hora")] Eventos eventos)
+        public ActionResult Edit([Bind(Include = "Estudiante_id,nombre,carrera,matricula")] Estudiantes estudiantes)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(eventos).State = EntityState.Modified;
+                db.Entry(estudiantes).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(eventos);
+            return View(estudiantes);
         }
 
-        // GET: Eventos/Delete/5
+        // GET: Estudiantes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Eventos eventos = db.Eventos.Find(id);
-            if (eventos == null)
+            Estudiantes estudiantes = db.Estudiantes.Find(id);
+            if (estudiantes == null)
             {
                 return HttpNotFound();
             }
-            return View(eventos);
+            return View(estudiantes);
         }
 
-        // POST: Eventos/Delete/5
+        // POST: Estudiantes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Eventos eventos = db.Eventos.Find(id);
-            db.Eventos.Remove(eventos);
+            Estudiantes estudiantes = db.Estudiantes.Find(id);
+            db.Estudiantes.Remove(estudiantes);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
