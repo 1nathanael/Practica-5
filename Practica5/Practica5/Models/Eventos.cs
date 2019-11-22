@@ -11,13 +11,11 @@ namespace Practica5.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Eventos
     {
         public int id { get; set; }
         public string Evento { get; set; }
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]
         public Nullable<System.DateTime> Fecha { get; set; }
         public Nullable<System.TimeSpan> Hora { get; set; }
     }

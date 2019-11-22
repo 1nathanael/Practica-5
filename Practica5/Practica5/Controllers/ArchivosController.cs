@@ -10,6 +10,9 @@ namespace Practica5.Controllers
 {
     public class ArchivosController : Controller
     {
+        public object JOptionpane { get; private set; }
+        public object MessageBox { get; private set; }
+
         // GET: Achivos
         public ActionResult Index()
         {
@@ -46,6 +49,7 @@ namespace Practica5.Controllers
                             Descripcion = row.Split(',')[2]
                         });
                     }
+                    
                 }
             }
 

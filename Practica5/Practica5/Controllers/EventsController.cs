@@ -34,6 +34,8 @@ namespace Practica5.Controllers
                 
                 return View(lista);
             }
+
+
         }
         // GET: Events/Details/5
         public ActionResult Details(int? id)
